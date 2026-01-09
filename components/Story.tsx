@@ -16,17 +16,6 @@ export default function Story() {
           <p className="text-lg md:text-xl leading-relaxed mb-6">
             From 2010, LeeFest found its home at <strong>Highams Hill Farm</strong>, growing to <strong>2,500 capacity</strong> by 2014.
           </p>
-          <div className="mt-8 p-6 bg-white dark:bg-gray-800 rounded-lg border-l-4 border-blue-500">
-            <p className="text-base md:text-lg mb-4">
-              <strong>Key points:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-base md:text-lg">
-              <li><strong>100% volunteer-run</strong> throughout its entire existence — no paid staff, just passionate people who believed in the project</li>
-              <li>Up to <strong>200 volunteers</strong> helped run the festival at its peak</li>
-              <li>Early years raised money for charities including Teenage Cancer Trust, Save The Children, and Kids Company</li>
-              <li>Known for discovering breakthrough artists before they hit the mainstream</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
