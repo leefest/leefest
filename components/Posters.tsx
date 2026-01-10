@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-const years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015]
+const years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014]
 
 // Map of years to their poster file paths
 const posterFiles: Record<number, string> = {
@@ -27,7 +27,7 @@ export default function Posters() {
         {/* Mobile: Horizontal scroll carousel */}
         <div className="md:hidden">
           <div className="overflow-x-auto scrollbar-hide snap-scroll -mx-4 px-4">
-            <div className="flex gap-4">
+            <div className="flex gap-4 pr-4">
               {years.map((year) => (
                 <div
                   key={year}
