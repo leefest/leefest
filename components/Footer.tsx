@@ -14,6 +14,7 @@ export default function Footer() {
           >
             Lee Denny
           </Link>
+          , Alex Brooks, Rich LeGate, David Hayes & Andy Denny
         </p>
         <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">
           Built entirely by volunteers. 2006–2015.

@@ -5,6 +5,17 @@ import Image from 'next/image'
 
 const years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015]
 
+// Map of years to their poster file paths
+const posterFiles: Record<number, string> = {
+  2006: '/posters/leefest-2006-poster.png',
+  2007: '/posters/leefest-2007-poster.png',
+  2008: '/posters/leefest-2008-poster.jpg',
+  2009: '/posters/leefest-2009-poster.jpg',
+  2010: '/posters/leefest-2010-poster.png',
+}
+
+const hasPoster = (year: number) => year in posterFiles
+
 export default function Posters() {
   const [lightboxOpen, setLightboxOpen] = useState<number | null>(null)
 
@@ -28,19 +39,19 @@ export default function Posters() {
                     aria-label={`View ${year} poster`}
                   >
                     <div className="relative aspect-[3/4] bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden mb-4">
-                      {/* Placeholder - replace with actual poster images */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-4xl font-bold text-gray-400">{year}</span>
-                      </div>
-                      {/* Uncomment when posters are available:
-                      <Image
-                        src={`/posters/${year}.jpg`}
-                        alt={`LeeFest ${year} poster`}
-                        fill
-                        className="object-cover"
-                        sizes="80vw"
-                      />
-                      */}
+                      {hasPoster(year) ? (
+                        <Image
+                          src={posterFiles[year]}
+                          alt={`LeeFest ${year} poster`}
+                          fill
+                          className="object-cover"
+                          sizes="80vw"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="text-4xl font-bold text-gray-400">{year}</span>
+                        </div>
+                      )}
                     </div>
                     <p className="text-center text-lg font-medium">{year}</p>
                   </button>
@@ -60,19 +71,19 @@ export default function Posters() {
               aria-label={`View ${year} poster`}
             >
               <div className="relative aspect-[3/4] bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden mb-4 transition-transform group-hover:scale-105">
-                {/* Placeholder - replace with actual poster images */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-gray-400">{year}</span>
-                </div>
-                {/* Uncomment when posters are available:
-                <Image
-                  src={`/posters/${year}.jpg`}
-                  alt={`LeeFest ${year} poster`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 80vw, (max-width: 1024px) 33vw, 20vw"
-                />
-                */}
+                {hasPoster(year) ? (
+                  <Image
+                    src={posterFiles[year]}
+                    alt={`LeeFest ${year} poster`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 80vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-4xl font-bold text-gray-400">{year}</span>
+                  </div>
+                )}
               </div>
               <p className="text-center text-lg font-medium">{year}</p>
             </button>
@@ -97,19 +108,19 @@ export default function Posters() {
               ×
             </button>
             <div className="relative max-w-2xl w-full aspect-[3/4]">
-              {/* Placeholder - replace with actual poster images */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-800 rounded-lg">
-                <span className="text-6xl font-bold text-gray-400">{lightboxOpen}</span>
-              </div>
-              {/* Uncomment when posters are available:
-              <Image
-                src={`/posters/${lightboxOpen}.jpg`}
-                alt={`LeeFest ${lightboxOpen} poster`}
-                fill
-                className="object-contain"
-                sizes="90vw"
-              />
-              */}
+              {lightboxOpen && hasPoster(lightboxOpen) ? (
+                <Image
+                  src={posterFiles[lightboxOpen]}
+                  alt={`LeeFest ${lightboxOpen} poster`}
+                  fill
+                  className="object-contain"
+                  sizes="90vw"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-800 rounded-lg">
+                  <span className="text-6xl font-bold text-gray-400">{lightboxOpen}</span>
+                </div>
+              )}
             </div>
           </div>
         )}
