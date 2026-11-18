@@ -6,7 +6,7 @@ A single-page website celebrating LeeFest — a grassroots music festival that r
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 22 LTS or later
 - npm or yarn
 
 ### Installation
@@ -82,7 +82,7 @@ The following assets need to be added to the project:
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
+- Next.js 15 (App Router)
 - TypeScript
 - Tailwind CSS
 - Vercel (hosting)
